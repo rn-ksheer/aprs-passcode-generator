@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>APRS-IS Passcode Generator</title>
+
+    <meta name="description"
+        content="Generate APRS-IS passcodes instantly from your amateur radio callsign.">
+
+    <meta name="author" content="VU25RK">
+
+    <link rel="stylesheet" href="style.css">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <button id="themeToggle" class="theme-toggle" title="Toggle Theme">
+        🌙
+    </button>
+
+    <main class="container">
+
+        <div class="card">
+
+            <h1>📡 APRS-IS Passcode Generator</h1>
+
+            <p class="subtitle">
+                Generate APRS-IS passcodes instantly
+            </p>
+
+            <div class="section">
+
+                <label for="callsign">
+                    Amateur Radio Callsign
+                </label>
+
+                <input
+                    id="callsign"
+                    type="text"
+                    placeholder="Example: VU25RK"
+                    autocomplete="off"
+                    spellcheck="false"
+                    autofocus>
+
+                <p class="hint">
+                    Use only the base callsign
+                    (Example:
+                    <strong>VU25RK</strong>,
+                    not
+                    <strong>VU25RK-10</strong>)
+                </p>
+
+            </div>
+
+<div class="display">
+
+    <div class="display-header">
+        APRS-IS PASSCODE
+    </div>
+
+    <div id="passcode" class="display-value">
+        -----
+    </div>
+
+</div>
+
+            <div id="status" class="status"></div>
+
+            <div class="button-row">
+
+                <button id="copyBtn" class="copy-btn">
+                    📋 Copy
+                </button>
+
+                <a
+                    class="github-btn"
+                    href="https://github.com/rn-ksheer/aprs-passcode-generator"
+                    target="_blank">
+
+                    GitHub
+
+                </a>
+
+            </div>
+
+            <div class="footer-info">
+
+                <p>
+                    ✔ For licensed amateur radio operators
+                </p>
+
+                <p class="credit">
+                    Made with ❤️ by <strong>VU25RK</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

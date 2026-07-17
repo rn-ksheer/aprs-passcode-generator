@@ -1,0 +1,531 @@
+/* ==========================================================
+   APRS-IS Passcode Generator - Version 2
+   Compact Glass UI
+   ========================================================== */
+   
+   #callsign{
+    text-transform: uppercase;
+}
+
+:root{
+
+    --bg:#0f172a;
+    --card:rgba(30,41,59,.72);
+
+    --text:#ffffff;
+    --sub:#cbd5e1;
+
+    --accent:#0ea5e9;
+    --accentHover:#0284c7;
+
+    --success:#22c55e;
+
+    --border:rgba(255,255,255,.08);
+
+}
+
+body.light{
+
+    --bg:#edf2f7;
+    --card:rgba(255,255,255,.88);
+    --text:#1e293b;
+
+    /* Darker secondary text */
+   --sub:#2f3e4d;
+
+    --border:#d6dce5;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--bg),
+            #111827
+        );
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+.container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:20px;
+
+}
+
+.card{
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.35);
+
+}
+
+body.light .card{
+
+    border:1px solid rgba(0,0,0,.12);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.18);
+
+}
+
+h1{
+
+    font-size:1.8rem;
+
+    text-align:center;
+
+    margin-bottom:6px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:var(--sub);
+
+    margin-bottom:22px;
+
+    font-size:.95rem;
+
+}
+
+.section{
+
+    margin-bottom:18px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+input{
+
+    width:100%;
+
+    padding:12px 14px;
+
+    border-radius:10px;
+
+    border:2px solid transparent;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.2s;
+
+}
+
+input:focus{
+
+    border-color:var(--accent);
+
+}
+
+.hint{
+
+    margin-top:8px;
+
+    color:var(--sub);
+
+    font-size:.82rem;
+
+    line-height:1.4;
+
+}
+
+/* ==========================
+   Radio LCD Display
+   ========================== */
+   
+/* ===========================
+   Radio Display
+=========================== */
+
+.display{
+
+    margin:24px 0;
+
+    padding:20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #202020,
+            #090909
+        );
+
+    border:3px solid #404040;
+
+    border-radius:14px;
+
+    box-shadow:
+
+        inset 0 3px 10px rgba(255,255,255,.05),
+
+        inset 0 -10px 20px rgba(0,0,0,.7),
+
+        0 10px 25px rgba(0,0,0,.35);
+
+}
+
+.display-header{
+
+    text-align:center;
+
+    color:#8ccfff;
+
+    font-size:.75rem;
+
+    letter-spacing:3px;
+
+    margin-bottom:14px;
+
+    text-transform:uppercase;
+
+}
+
+.display-value{
+	transition: transform .18s ease;
+
+    text-align:center;
+
+    font-family:'Orbitron', monospace;
+
+    font-size:3.2rem;
+
+    font-weight:700;
+
+    color:#66ff66;
+
+    letter-spacing:10px;
+
+    text-shadow:
+
+        0 0 6px rgba(102,255,102,.8),
+
+        0 0 15px rgba(102,255,102,.45);
+
+}   
+
+.result-box{
+
+    margin:20px 0;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    background:#111;
+
+    border:2px solid #333;
+
+    box-shadow:
+        inset 0 0 18px rgba(0,0,0,.8),
+        0 8px 18px rgba(0,0,0,.35);
+
+    text-align:center;
+
+}
+
+.result-label{
+
+    color:#8fd3ff;
+
+    font-size:.8rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+
+}
+
+.passcode{
+
+    font-family:
+        "Consolas",
+        "Courier New",
+        monospace;
+
+    font-size:3rem;
+
+    font-weight:bold;
+
+    color:#39ff14;
+
+    letter-spacing:8px;
+
+    text-shadow:
+        0 0 5px rgba(57,255,20,.8),
+        0 0 12px rgba(57,255,20,.5);
+
+    min-height:58px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.status{
+
+    height:20px;
+
+    margin:8px 0;
+
+    text-align:center;
+
+    color:var(--success);
+
+    font-size:.9rem;
+
+}
+
+.button-row{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:8px;
+
+}
+
+.copy-btn,
+.github-btn{
+
+    flex:1;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:12px;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.2s;
+
+}
+
+.copy-btn{
+
+    background:linear-gradient(
+        180deg,
+        #2ea8ff,
+        #0078d4
+    );
+
+    font-weight:600;
+
+}
+
+.copy-btn:hover{
+
+    background:var(--accentHover);
+
+}
+
+.github-btn,
+.github-btn:link,
+.github-btn:visited{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+}
+
+.github-btn{
+
+    background:linear-gradient(
+        180deg,
+        #444,
+        #222
+    );
+
+    font-weight:600;
+
+}
+
+.github-btn:focus{
+
+    color:#ffffff;
+
+}
+
+.github-btn:active{
+
+    color:#ffffff;
+
+}
+
+.github-btn:hover{
+
+    background:#000;
+
+}
+
+.footer-info{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:var(--sub);
+
+    font-size:.82rem;
+
+    line-height:1.5;
+
+}
+
+body.light .footer-info{
+
+     color:#374151;
+
+}
+
+.credit{
+
+    margin-top:10px;
+
+    font-size:.9rem;
+
+    color:var(--text);
+
+}
+
+body.light .footer-info{
+
+    color:#2c3e50;
+
+}
+
+body.light .credit strong{
+
+     color:#000000;
+
+}
+
+body.light .credit{
+
+    color:#1e293b;
+
+}
+
+.theme-toggle{
+
+    position:fixed;
+
+    top:18px;
+
+    right:18px;
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    backdrop-filter:blur(12px);
+
+    font-size:18px;
+
+    transition:.25s;
+
+}
+
+.theme-toggle:hover{
+
+    transform:rotate(20deg);
+
+}
+
+
+
+@media(max-width:500px){
+
+    .card{
+
+        padding:18px;
+
+    }
+
+    h1{
+
+        font-size:1.5rem;
+
+    }
+
+    .passcode{
+
+        font-size:1.9rem;
+
+    }
+
+    .button-row{
+
+        flex-direction:column;
+
+    }
+
+}
