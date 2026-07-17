@@ -40,11 +40,8 @@ Your APRS-IS passcode is generated instantly.
 
 ## 📷 Screenshot
 
-> Add a screenshot here after publishing.
+<img width="369" height="476" alt="screen" src="https://github.com/user-attachments/assets/98f29617-e771-4ad1-9029-2d7034aca201" />
 
-```
-images/screenshot.png
-```
 
 ---
 
